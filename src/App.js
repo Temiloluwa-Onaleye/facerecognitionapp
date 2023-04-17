@@ -2,15 +2,15 @@ import "./App.css";
 import FaceDetection from "./components/FaceDetection";
 import ImageLinkForm from "./components/ImageLinkForm";
 import Logo from "./components/Logo";
-import Nav from "./components/Nav";
+import Nav from "./components/Navigation/Nav";
 
 function App() {
   return (
-    <div className="app">
+    <div className="bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE]">
       <Nav />
-      <Logo />
+      {/* <Logo />
       <ImageLinkForm />
-      <FaceDetection />
+      <FaceDetection /> */}
     </div>
   );
 }
