@@ -21,13 +21,21 @@ class App extends Component {
     console.log(event.target.value);
   };
 
+  onBtnClick = (event) => {
+    event.preventDefault();
+    console.log("submit");
+  };
+
   render() {
     return (
       <div className=" h-screen bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE] font-courier">
         <Nav />
         <Logo />
         <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} />
+        <ImageLinkForm
+          onInputChange={this.onInputChange}
+          onBtnClick={this.onBtnClick}
+        />
         {/* <FaceDetection /> */}
         <ParticlesBg type="custom" bg={true} />
       </div>
