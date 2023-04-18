@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageLinkForm.css";
 
-const ImageLinkForm = () => {
+const ImageLinkForm = ({ onInputChange }) => {
   return (
     <div>
       <p className=" text-lg text-center">
@@ -13,6 +13,7 @@ const ImageLinkForm = () => {
             type="text"
             placeholder="enter your image url"
             className="text-base p-2 w-[70%]"
+            onChange={onInputChange}
           />
           <button className=" w-[30%] text-base text-white bg-purple-400 p-2">
             Detect
