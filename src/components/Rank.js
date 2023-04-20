@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class Rank extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <div className="flex flex-col flex-auto items-center">
