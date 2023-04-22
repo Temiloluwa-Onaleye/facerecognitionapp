@@ -77,11 +77,13 @@ class App extends Component {
     this.setState({ imageUrl: this.state.input });
 
     fetch(
-      "https://api.clarifai.com/v2/models/" + "face-detection" + "/outputs",
+      `https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c5c8824be4822abe105/outputs`,
       setupClarifai(this.state.input)
     )
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then(
+        (result) => result.outputs[0].data.regions[0].region_info.bounding_box
+      )
       .catch((error) => console.log("error", error));
   };
 
