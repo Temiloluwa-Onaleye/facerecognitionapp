@@ -66,6 +66,7 @@ class App extends Component {
       input: "",
       imageUrl: "",
       box: {},
+      route: "Signin",
     };
   }
 
@@ -111,16 +112,24 @@ class App extends Component {
   render() {
     return (
       <div className=" h-screen bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE] font-courier">
-        <Signin />
         <Nav />
-        <Logo />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onBtnClick={this.onBtnClick}
-        />
-        <FaceDetection box={this.state.box} imageUrl={this.state.imageUrl} />
-        <ParticlesBg type="custom" bg={true} />
+        {this.state.route === "Signin" ? (
+          <Signin />
+        ) : (
+          <>
+            <Logo />
+            <Rank />
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onBtnClick={this.onBtnClick}
+            />
+            <FaceDetection
+              box={this.state.box}
+              imageUrl={this.state.imageUrl}
+            />
+            <ParticlesBg type="custom" bg={true} />
+          </>
+        )}
       </div>
     );
   }
