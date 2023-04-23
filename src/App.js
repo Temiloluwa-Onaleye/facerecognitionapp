@@ -64,8 +64,28 @@ class App extends Component {
     this.state = {
       input: "",
       imageUrl: "",
+      box: {},
     };
   }
+
+  calculateFaceLocation = (data) => {
+    const clarifaiFace =
+      data.outputs[0].data.regions[0].region_info.bounding_box;
+
+    const image = document.getElementById("inputimage");
+    const width = Number(image.width);
+    const height = Number(image.height);
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      rightCol: width - clarifaiFace.right_col * width,
+      topRow: clarifaiFace.top_row * height,
+      bottomRow: height - clarifaiFace.bottom_row * height,
+    };
+  };
+
+  displayFaceBox = (box) => {
+    this.setState({ box: box });
+  };
 
   onInputChange = (event) => {
     event.preventDefault();
@@ -81,8 +101,8 @@ class App extends Component {
       setupClarifai(this.state.input)
     )
       .then((response) => response.json())
-      .then(
-        (result) => result.outputs[0].data.regions[0].region_info.bounding_box
+      .then((response) =>
+        this.displayFaceBox(this.calculateFaceLocation(response))
       )
       .catch((error) => console.log("error", error));
   };
@@ -97,7 +117,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onBtnClick={this.onBtnClick}
         />
-        <FaceDetection imageUrl={this.state.imageUrl} />
+        <FaceDetection box={this.state.box} imageUrl={this.state.imageUrl} />
         <ParticlesBg type="custom" bg={true} />
       </div>
     );
