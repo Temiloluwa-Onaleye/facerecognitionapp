@@ -1,6 +1,6 @@
 import React from "react";
 
-const Signin = () => {
+const Signin = ({ onRouteChange }) => {
   return (
     <div>
       <div className="w-full max-w-xs">
@@ -40,20 +40,12 @@ const Signin = () => {
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              onClick={() => onRouteChange("home")}
             >
               Sign In
             </button>
-            <a
-              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              href="#"
-            >
-              Forgot Password?
-            </a>
           </div>
         </form>
-        <p className="text-center text-gray-500 text-xs">
-          &copy;2020 Acme Corp. All rights reserved.
-        </p>
       </div>
     </div>
   );

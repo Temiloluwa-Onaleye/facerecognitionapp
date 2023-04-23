@@ -94,6 +94,10 @@ class App extends Component {
     this.setState({ input: event.target.value });
   };
 
+  onRouteChange = (route) => {
+    this.setState({ route: route });
+  };
+
   onBtnClick = (event) => {
     event.preventDefault();
     this.setState({ imageUrl: this.state.input });
@@ -112,9 +116,9 @@ class App extends Component {
   render() {
     return (
       <div className=" h-screen bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE] font-courier">
-        <Nav />
+        <Nav onRouteChange={this.onRouteChange} />
         {this.state.route === "Signin" ? (
-          <Signin />
+          <Signin onRouteChange={this.onRouteChange} />
         ) : (
           <>
             <Logo />
