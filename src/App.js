@@ -7,6 +7,7 @@ import Nav from "./components/Navigation/Nav";
 import Rank from "./components/Rank";
 import "@fontsource/courier-prime";
 import ParticlesBg from "particles-bg";
+import Signin from "./components/Signin/Signin";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // In this section, we set the user authentication, user and app ID, model details, and the URL
@@ -110,6 +111,7 @@ class App extends Component {
   render() {
     return (
       <div className=" h-screen bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE] font-courier">
+        <Signin />
         <Nav />
         <Logo />
         <Rank />
