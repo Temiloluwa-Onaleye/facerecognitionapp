@@ -2,9 +2,9 @@ import React from "react";
 
 const Signin = ({ onRouteChange }) => {
   return (
-    <div className="flex mx-auto justify-center items-center mt-20">
+    <div className="flex justify-center  mt-20">
       <div className="w-full  max-w-xs flex flex-col justify-center">
-        <form className="bg-[#bbb] shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form className="bg-transparent flex flex-col  shadow-md rounded-sm px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
