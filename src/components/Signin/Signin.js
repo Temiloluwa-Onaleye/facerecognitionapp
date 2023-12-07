@@ -2,9 +2,9 @@ import React from "react";
 
 const Signin = ({ onRouteChange }) => {
   return (
-    <div>
-      <div className="w-full max-w-xs">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="flex mx-auto justify-center items-center mt-20">
+      <div className="w-full  max-w-xs flex flex-col justify-center">
+        <form className="bg-[#bbb] shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -36,15 +36,14 @@ const Signin = ({ onRouteChange }) => {
               Please choose a password.
             </p>
           </div>
-          <div className="flex items-center justify-between">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={() => onRouteChange("home")}
-            >
-              Sign In
-            </button>
-          </div>
+
+          <button
+            className="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            onClick={() => onRouteChange("home")}
+          >
+            Sign In
+          </button>
         </form>
       </div>
     </div>

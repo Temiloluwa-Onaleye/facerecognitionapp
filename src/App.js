@@ -115,26 +115,28 @@ class App extends Component {
 
   render() {
     return (
-      <div className=" h-screen bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE] font-courier">
-        <Nav onRouteChange={this.onRouteChange} />
-        {this.state.route === "Signin" ? (
-          <Signin onRouteChange={this.onRouteChange} />
-        ) : (
-          <>
-            <Logo />
-            <Rank />
-            <ImageLinkForm
-              onInputChange={this.onInputChange}
-              onBtnClick={this.onBtnClick}
-            />
-            <FaceDetection
-              box={this.state.box}
-              imageUrl={this.state.imageUrl}
-            />
-            <ParticlesBg type="custom" bg={true} />
-          </>
-        )}
-      </div>
+      <>
+        <div className=" h-screen  font-courier">
+          <Nav onRouteChange={this.onRouteChange} />
+          {this.state.route === "Signin" ? (
+            <Signin onRouteChange={this.onRouteChange} />
+          ) : (
+            <>
+              <Logo />
+              <Rank />
+              <ImageLinkForm
+                onInputChange={this.onInputChange}
+                onBtnClick={this.onBtnClick}
+              />
+              <FaceDetection
+                box={this.state.box}
+                imageUrl={this.state.imageUrl}
+              />
+            </>
+          )}
+        </div>
+        <ParticlesBg type="cobweb" bg={true} />
+      </>
     );
   }
 }
