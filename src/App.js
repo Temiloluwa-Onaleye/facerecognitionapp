@@ -8,6 +8,7 @@ import Rank from "./components/Rank";
 import "@fontsource/courier-prime";
 import ParticlesBg from "particles-bg";
 import Signin from "./components/Signin/Signin";
+import Register from "./components/Register/Register";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // In this section, we set the user authentication, user and app ID, model details, and the URL
@@ -66,7 +67,8 @@ class App extends Component {
       input: "",
       imageUrl: "",
       box: {},
-      route: "Signin",
+      route: "signin",
+      isSignedIn: false,
     };
   }
 
@@ -102,6 +104,11 @@ class App extends Component {
   };
 
   onRouteChange = (route) => {
+    if (route === "signout") {
+      this.setState({ isSignedIn: false });
+    } else if (route === "home") {
+      this.setState({ isSignedIn: true });
+    }
     this.setState({ route: route });
   };
 
@@ -124,10 +131,11 @@ class App extends Component {
     return (
       <div className="">
         <div className=" h-screen   font-courier">
-          <Nav onRouteChange={this.onRouteChange} />
-          {this.state.route === "Signin" ? (
-            <Signin onRouteChange={this.onRouteChange} />
-          ) : (
+          <Nav
+            onRouteChange={this.onRouteChange}
+            isSignedIn={this.state.isSignedIn}
+          />
+          {this.state.route === "home" ? (
             <>
               <Logo />
               <Rank />
@@ -139,6 +147,15 @@ class App extends Component {
                 boxes={this.state.boxes}
                 imageUrl={this.state.imageUrl}
               />
+            </>
+          ) : this.state.route === "signin" ? (
+            <>
+              <Signin onRouteChange={this.onRouteChange} />
+            </>
+          ) : (
+            <>
+              {" "}
+              <Register onRouteChange={this.onRouteChange} />
             </>
           )}
         </div>
