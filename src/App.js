@@ -115,8 +115,8 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <div className=" h-screen  font-courier">
+      <div className="">
+        <div className=" h-screen   font-courier">
           <Nav onRouteChange={this.onRouteChange} />
           {this.state.route === "Signin" ? (
             <Signin onRouteChange={this.onRouteChange} />
@@ -136,7 +136,7 @@ class App extends Component {
           )}
         </div>
         <ParticlesBg type="cobweb" bg={true} />
-      </>
+      </div>
     );
   }
 }

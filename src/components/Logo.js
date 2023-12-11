@@ -8,15 +8,20 @@ const Logo = () => {
       <Tilt>
         <div
           style={{
-            height: "150px",
-            width: "150px",
+            height: "100px",
+
             backgroundColor: "",
           }}
-          className=" bg-gradient-to-r from-[#FF5EDF] to-[#04C8DE] border border-transparent rounded-sm shadow-sm flex justify-center"
+          className=" w-28 bg-gradient-to-r from-[#2193b0] to-[#6dd5ed] border border-transparent rounded-sm shadow-sm flex justify-center"
         >
           <img src={face} alt="logo" />
         </div>
       </Tilt>
+      {/* <Tilt>
+        <div style={{ height: "300px", backgroundColor: "darkgreen" }}>
+          <h1>React Parallax Tilt 👀</h1>
+        </div>
+      </Tilt> */}
     </div>
   );
 };
